@@ -1,0 +1,139 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+.page-container {
+  max-width: 920px;
+  padding-block: 3.5rem;
+}
+
+.page-heading {
+  margin-bottom: 1.75rem;
+}
+
+.page-heading h1,
+.detail-card h1 {
+  margin-bottom: 0.65rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  margin-bottom: 0.55rem;
+  color: #5269d8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.report-card,
+.detail-card {
+  overflow: hidden;
+  border: 1px solid #e7eaf0;
+  border-radius: 1rem;
+  box-shadow: 0 0.75rem 2rem rgb(25 42 70 / 6%);
+}
+
+.report-card .table {
+  --bs-table-bg: transparent;
+}
+
+.report-card th {
+  padding: 1rem 1.25rem;
+  background: #f8f9fc;
+  color: #697386;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.report-card td {
+  padding: 1rem 1.25rem;
+}
+
+.student-name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.state-message {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-message {
+  color: #b42318;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  color: #5269d8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #394bb0;
+  text-decoration: underline;
+}
+
+.detail-heading {
+  margin-bottom: 1.5rem;
+}
+
+.detail-card {
+  padding: 0.5rem 1.5rem;
+}
+
+.summary-list {
+  margin: 0;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.summary-item:last-child {
+  border-bottom: 0;
+}
+
+.summary-item dt {
+  color: #697386;
+  font-weight: 500;
+}
+
+.summary-item dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 575.98px) {
+  .page-container {
+    padding-block: 2rem;
+  }
+
+  .report-card th,
+  .report-card td {
+    padding-inline: 0.85rem;
+  }
+
+  .detail-card {
+    padding-inline: 1.1rem;
+  }
+}

@@ -1,0 +1,50 @@
+<main class="container page-container">
+  <header class="page-heading">
+    <p class="eyebrow">REPORTE ACADÉMICO</p>
+    <h1>Estudiantes</h1>
+    <p class="text-secondary mb-0">Consulta las calificaciones y el detalle de cada estudiante.</p>
+  </header>
+
+  <section class="card report-card" aria-label="Lista de estudiantes">
+    @if (cargando()) {
+      <p class="state-message" role="status">Cargando estudiantes...</p>
+    } @else if (error()) {
+      <p class="state-message error-message" role="alert">
+        No se pudo cargar la lista de estudiantes. Intenta nuevamente más tarde.
+      </p>
+    } @else {
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Nota 1</th>
+              <th scope="col">Nota 2</th>
+              <th scope="col">Nota 3</th>
+              <th scope="col"><span class="visually-hidden">Detalle</span></th>
+            </tr>
+          </thead>S
+          <tbody>
+            @for (estudiante of estudiantes(); track estudiante.id) {
+              <tr>
+                <td class="student-name">{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.nota1 }}</td>
+                <td>{{ estudiante.nota2 }}</td>
+                <td>{{ estudiante.nota3 }}</td>
+                <td class="text-end">
+                  <a class="btn btn-primary btn-sm" [routerLink]="['/estudiante', estudiante.id]">
+                    Detalle
+                  </a>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="5" class="state-message">No hay estudiantes disponibles.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </section>
+</main>

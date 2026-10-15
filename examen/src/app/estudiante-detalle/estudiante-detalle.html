@@ -1,0 +1,53 @@
+<main class="container page-container">
+  <a class="back-link" routerLink="/">← Volver al reporte</a>
+
+  @if (cargando()) {
+    <p class="state-message" role="status">Cargando detalle...</p>
+  } @else if (error()) {
+    <p class="state-message error-message" role="alert">
+      No se pudo cargar el detalle. Intenta nuevamente más tarde.
+    </p>
+  } @else if (noEncontrado()) {
+    <section class="card detail-card">
+      <h1>Estudiante no encontrado</h1>
+      <p class="text-secondary mb-0">No se encontró un estudiante con ese identificador.</p>
+    </section>
+  } @else if (estudiante(); as estudiante) {
+    <header class="page-heading detail-heading">
+      <p class="eyebrow">DETALLE ACADÉMICO</p>
+      <h1>{{ estudiante.nombre }}</h1>
+      <p class="text-secondary mb-0">Resultado de las tres calificaciones.</p>
+    </header>
+
+    @if (resumen(); as resumen) {
+      <section class="card detail-card" aria-label="Resumen académico">
+        <dl class="summary-list">
+          <div class="summary-item">
+            <dt>Suma de notas</dt>
+            <dd>{{ resumen.suma }}</dd>
+          </div>
+          <div class="summary-item">
+            <dt>Promedio</dt>
+            <dd>{{ resumen.promedio | number: '1.2-2' }}</dd>
+          </div>
+          <div class="summary-item">
+            <dt>Estado</dt>
+            <dd>
+              <span
+                class="badge"
+                [class.text-bg-success]="resumen.estado === 'Aprobado'"
+                [class.text-bg-danger]="resumen.estado === 'Desaprobado'"
+              >
+                {{ resumen.estado }}
+              </span>
+            </dd>
+          </div>
+          <div class="summary-item">
+            <dt>Observación</dt>
+            <dd>{{ resumen.observacion }}</dd>
+          </div>
+        </dl>
+      </section>
+    }
+  }
+</main>
