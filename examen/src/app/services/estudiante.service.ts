@@ -4,7 +4,7 @@ import { Observable, shareReplay } from 'rxjs';
 import { Estudiante } from '../models/estudiante';
 
 @Injectable({ providedIn: 'root' })
-export class EstudianteService {S
+export class EstudianteService {
   private readonly http = inject(HttpClient);
 
   readonly estudiantes$: Observable<Estudiante[]> = this.http
